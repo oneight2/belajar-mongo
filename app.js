@@ -144,9 +144,9 @@ app.post(
 );
 
 // PROSES DELETE KONTAK
-
 app.delete("/contact", (req, res) => {
-  Contact.deleteOne({ _id: contact._id }).then((result) => {
+  console.log(req.body);
+  Contact.deleteOne({ _id: req.body.id }).then((result) => {
     req.flash("msg", "Data kontak berhasil dihapus!");
     res.redirect("/contact");
   });
